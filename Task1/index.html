@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Введение и обзор веб-технологии JavaScript</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="text/javascript" src="js/script.js" defer></script>
+</head>
+<body>
+  <header>
+    <nav class="menu-navigation">
+      <ul class="menu-navigation-list">
+        <li class="menu-navigation-list-item"><a href="#what-is-js" class="reference nav">Что такое JavaScript?</a></li>
+        <li class="menu-navigation-list-item"><a href="#abilities-in-browser" class="reference nav">Что может JavaScript в браузере?</a></li>
+        <li class="menu-navigation-list-item"><a href="#no-abilities-in-browser" class="reference nav">Чего НЕ может JavaScript в браузере?</a></li>
+        <li class="menu-navigation-list-item"><a href="#special-abilities" class="reference nav">Что делает JavaScript особенным?</a></li>
+        <li class="menu-navigation-list-item"><a href="#languages-over-js" class="reference nav">Языки «над» JavaScript</a></li>
+        <li class="menu-navigation-list-item"><a href="#in-total" class="reference nav">Итого</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="container">
+      <h1 class="main-title">Введение в JavaScript</h1>
+      <p class="text">
+        Давайте посмотрим, что такого особенного в JavaScript, чего можно достичь с его помощью и какие другие технологии хорошо с ним работают.
+      </p>
+      <a class="to-start" title="В начало страницы"><img src="images/arrow.png" style="width: 100%;"></a>
+      <section id="what-is-js" class="section">
+          <h2 class="second-level-title">
+            Что такое JavaScript?
+          </h2>
+          <p class="text">
+            Изначально <em>JavaScript</em> был создан, чтобы <i>&laquo;сделать веб-страницы живыми&raquo;</i>.
+          </p>
+          <p class="text">
+            Программы на&nbsp;этом языке называются <i>скриптами</i>. Они могут встраиваться в&nbsp;HTML и&nbsp;выполняться автоматически при загрузке веб-страницы.
+          </p>
+          <p class="text">
+            Скрипты распространяются и&nbsp;выполняются, как простой текст. Им&nbsp;не&nbsp;нужна специальная подготовка или компиляция для запуска.
+          </p>
+          <p class="text">
+            Это отличает JavaScript от&nbsp;другого языка&nbsp;&mdash; <a hef="https://ru.wikipedia.org/wiki/Java" class="reference">Java</a>.
+          </p>
+          <div class="interesting-information"> 
+            <div class="interesting-information-header">
+              Почему <span class="underlined">Java</span>Script?
+            </div>
+            <div class="interesting-information-body">
+              <p class="text">
+                Когда JavaScript создавался, у&nbsp;него было другое имя&nbsp;&mdash; &laquo;LiveScript&raquo;. Однако, язык Java был очень популярен в&nbsp;то&nbsp;время, и&nbsp;было решено, что позиционирование JavaScript как &laquo;младшего брата&raquo; Java будет полезно.
+              </p>
+              <p class="text">
+                Со&nbsp;временем JavaScript стал полностью независимым языком со&nbsp;своей собственной спецификацией, называющейся <a href="https://ru.wikipedia.org/wiki/ECMAScript" class="reference">ECMAScript</a>, и&nbsp;сейчас не&nbsp;имеет никакого отношения к&nbsp;Java.
+              </p>
+            </div>
+          </div>
+        <p class="text">
+          Сегодня JavaScript может выполняться не&nbsp;только в&nbsp;браузере, но&nbsp;и&nbsp;на&nbsp;сервере или на&nbsp;любом другом устройстве, которое имеет специальную программу, называющуюся <a href="https://ru.wikipedia.org/wiki/%D0%94%D0%B2%D0%B8%D0%B6%D0%BE%D0%BA_JavaScript" class="reference">&laquo;движком&raquo; JavaScript</a>.
+        </p>
+        <p class="text">
+          У&nbsp;браузера есть собственный движок, который иногда называют &laquo;виртуальная машина JavaScript&raquo;.
+        </p>
+        <p class="text">
+          Разные движки имеют разные &laquo;кодовые имена&raquo;. Например:
+        </p>
+        <ul class="list">
+          <li class="list-item">
+            <a href="https://ru.wikipedia.org/wiki/V8_(%D0%B4%D0%B2%D0%B8%D0%B6%D0%BE%D0%BA_JavaScript)" class="reference">V8</a>&nbsp;&mdash; в&nbsp;Chrome и&nbsp;Opera.
+          </li>
+          <li class="list-item">
+            <a href="https://ru.wikipedia.org/wiki/SpiderMonkey" class="reference">SpiderMonkey</a>&nbsp;&mdash; в&nbsp;Firefox.
+          </li>
+          <li class="list-item">
+            ...Ещё есть &laquo;Trident&raquo; и&nbsp;&laquo;Chakra&raquo; для разных версий IE, &laquo;ChakraCore&raquo; для Microsoft Edge, &laquo;Nitro&raquo; и&nbsp;&laquo;SquirrelFish&raquo; для Safari и&nbsp;т.д.
+          </li>
+        </ul>
+        <p class="text">
+          Эти названия полезно знать, так как они часто используются в&nbsp;статьях для разработчиков. Мы&nbsp;тоже будем их&nbsp;использовать. Например, если &laquo;функциональность&nbsp;X поддерживается&nbsp;V8&raquo;, тогда &laquo;Х&raquo;, скорее всего, работает в&nbsp;Chrome и&nbsp;Opera.
+        </p>
+        <div class="interesting-information">
+          <div class="interesting-information-header">
+            Как работают движки?
+          </div>
+          <div class="interesting-information-body">
+            <p class="text">
+              Движки сложны. Но&nbsp;основы понять легко.
+            </p>
+            <ol class="list">
+              <li class="list-item">
+                Движок (встроенный, если это браузер) читает (&laquo;парсит&raquo;) текст скрипта.
+              </li>
+              <li class="list-item">
+                Затем он&nbsp;преобразует (&laquo;компилирует&raquo;) скрипт в&nbsp;машинный язык.
+              </li>
+              <li class="list-item">
+                После этого машинный код запускается и&nbsp;работает достаточно быстро.
+              </li>
+            </ol>
+            <p class="text">
+              Движок применяет оптимизации на&nbsp;каждом этапе. Он&nbsp;даже просматривает скомпилированный скрипт во&nbsp;время его работы, анализируя проходящие через него данные, и&nbsp;применяет оптимизации к&nbsp;машинному коду, полагаясь на&nbsp;полученные знания. В&nbsp;результате скрипты работают очень быстро. 
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="abilities-in-browser" class="section">
+        <h2 class="second-level-title">
+          Что может JavaScript в&nbsp;браузере?
+        </h2>
+        <p class="text">
+          Современный JavaScript&nbsp;&mdash; это &laquo;безопасный&raquo; язык программирования. Он&nbsp;не&nbsp;предоставляет низкоуровневый доступ к&nbsp;памяти или процессору, потому что изначально был создан для браузеров, не&nbsp;требующих этого.
+        </p>
+        <p class="text">
+          Возможности JavaScript сильно зависят от&nbsp;окружения, в&nbsp;котором он&nbsp;работает. Например, Node.JS поддерживает функции чтения/записи произвольных файлов, выполнения сетевых запросов и&nbsp;т.д.
+        </p>
+        <p class="text">
+          В&nbsp;браузере для JavaScript доступно всё, что связано с&nbsp;манипулированием веб-страницами, взаимодействием с&nbsp;пользователем и&nbsp;веб-сервером.
+        </p>
+        <p class="text">
+          Например, в&nbsp;браузере JavaScript может:
+        </p>
+        <ul class="list">
+          <li class="list-item">
+            Добавлять новый HTML-код на&nbsp;страницу, изменять существующее содержимое, модифицировать стили.
+          </li>
+          <li class="list-item">
+            Реагировать на&nbsp;действия пользователя, щелчки мыши, перемещения указателя, нажатия клавиш.
+          </li>
+          <li class="list-item">
+            Отправлять сетевые запросы на&nbsp;удалённые сервера, скачивать и&nbsp;загружать файлы (технологии <a href="https://ru.wikipedia.org/wiki/AJAX" class="reference">AJAX</a> и&nbsp;<a href="https://ru.wikipedia.org/wiki/Comet_(%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)" class="reference">COMET</a>).
+          </li>
+          <li class="list-item">
+            Получать и&nbsp;устанавливать куки, задавать вопросы посетителю, показывать сообщения.
+          </li>
+          <li class="list-item">
+            Запоминать данные на&nbsp;стороне клиента (&laquo;local storage&raquo;).
+          </li>
+        </ul>
+      </section>
+      <section id="no-abilities-in-browser" class="section">
+        <h2 class="second-level-title">
+          Чего НЕ&nbsp;может JavaScript в&nbsp;браузере?
+        </h2>
+        <p class="text">
+          Возможности JavaScript в&nbsp;браузере ограничены ради безопасности пользователя. Цель заключается в&nbsp;предотвращении доступа недобросовестной веб-страницы к&nbsp;личной информации или нанесения ущерба данным пользователя.
+        </p>
+        <p class="text">
+          Примеры таких ограничений включают в себя:
+        </p>
+        <ul class="list">
+          <li class="list-item">
+            <p class="text">
+              JavaScript на&nbsp;веб-странице не&nbsp;может читать/записывать произвольные файлы на&nbsp;жёстком диске, копировать их&nbsp;или запускать программы. Он&nbsp;не&nbsp;имеет прямого доступа к&nbsp;системным функциям&nbsp;ОС.
+            </p>
+            <p class="text">
+              Современные браузеры позволяют ему работать с&nbsp;файлами, но&nbsp;с&nbsp;ограниченным доступом, и&nbsp;предоставляют его, только если пользователь выполняет определённые действия, такие как &laquo;перетаскивание&raquo; файла в&nbsp;окно браузера или его выбор с&nbsp;помощью тега <code>&lt;input&gt;</code>.
+            </p>
+            <p class="text">
+              Существуют способы взаимодействия с&nbsp;камерой/микрофоном и&nbsp;другими устройствами, но&nbsp;они требуют явного разрешения пользователя. Таким образом, страница с&nbsp;поддержкой JavaScript не&nbsp;может незаметно включить веб-камеру, наблюдать за&nbsp;происходящим и&nbsp;отправлять информацию в&nbsp;ФСБ.
+            </p>
+          </li>
+          <li class="list-item">
+            <p class="text">
+              Различные окна/вкладки не&nbsp;знают друг о&nbsp;друге. Иногда одно окно, используя JavaScript, открывает другое окно. Но&nbsp;даже в&nbsp;этом случае JavaScript с&nbsp;одной страницы не&nbsp;имеет доступа к&nbsp;другой, если они пришли с&nbsp;разных сайтов (с&nbsp;другого домена, протокола или порта).
+            </p>
+            <p class="text">
+              Это называется &laquo;Политика одинакового источника&raquo; (Same Origin Policy). Чтобы обойти это ограничение, обе страницы должны согласиться с&nbsp;этим и&nbsp;содержать JavaScript-код, который специальным образом обменивается данными.
+            </p>
+            <p class="text">
+              Это ограничение необходимо, опять&nbsp;же, для безопасности пользователя. Страница <code>https://anysite.com</code>, которую открыл пользователь, не&nbsp;должна иметь доступ к&nbsp;другой вкладке браузера с&nbsp;URL <code>https://gmail.com</code> и&nbsp;воровать информацию оттуда.
+            </p>
+          </li>
+          <li class="list-item">
+            JavaScript может легко взаимодействовать с&nbsp;сервером, с&nbsp;которого пришла текущая страница. Но&nbsp;его способность получать данные с&nbsp;других сайтов/доменов ограничена. Хотя это возможно в&nbsp;принципе, для чего требуется явное согласие (выраженное в&nbsp;заголовках HTTP) с&nbsp;удалённой стороной. Опять&nbsp;же, это ограничение безопасности.
+          </li>
+        </ul>
+        <div class="image-in-text">
+          <div></div>
+          <div>
+            <img src="images/limits-js.png" alt="Ограничения JS" class="image">
+          </div>
+          <div></div>
+        </div>
+        <p class="text">
+          Подобные ограничения не&nbsp;действуют, если JavaScript используется вне браузера, например&nbsp;&mdash; на&nbsp;сервере. Современные браузеры предоставляют плагины/расширения, с&nbsp;помощью которых можно запрашивать дополнительные разрешения.
+        </p>
+      </section>
+      <section id="special-abilities" class="section">
+        <h2 class="second-level-title">
+          Что делает JavaScript особенным?
+        </h2>
+        <p class="text">
+          Как минимум, <i>три</i> сильные стороны JavaScript:
+        </p>
+        <div class="interesting-information">
+          <ul class="list">
+            <li class="list-item">
+              Полная интеграция с&nbsp;HTML/CSS.
+            </li>
+            <li class="list-item">
+              Простые вещи делаются просто.
+            </li>
+            <li class="list-item">
+              Поддерживается всеми основными браузерами и&nbsp;включён по&nbsp;умолчанию.
+            </li>
+          </ul>
+        </div>
+        <p class="text">
+          JavaScript&nbsp;&mdash; это единственная браузерная технология, сочетающая в&nbsp;себе все эти три вещи.
+        </p>
+        <p class="text">
+          Вот что делает JavaScript особенным. Вот почему это самый распространённый инструмент для создания интерфейсов в&nbsp;браузере.
+        </p>
+        <p class="text">
+          Хотя, конечно, JavaScript позволяет делать приложения не&nbsp;только в&nbsp;браузерах, но&nbsp;и&nbsp;на&nbsp;сервере, на&nbsp;мобильных устройствах и&nbsp;т.п.
+        </p>
+      </section>
+      <section id="languages-over-js" class="section">
+        <h2 class="second-level-title">
+          Языки &laquo;над&raquo; JavaScript
+        </h2>
+        <p class="text">
+          Синтаксис JavaScript подходит не&nbsp;под все нужды. Разные люди хотят иметь разные возможности.
+        </p>
+        <p class="text">
+          Это естественно, потому что проекты разные и&nbsp;требования к&nbsp;ним тоже разные.
+        </p>
+        <p class="text">
+          Так, в&nbsp;последнее время появилось много новых языков, которые <i>транспилируются</i> (конвертируются) в&nbsp;JavaScript, прежде чем запустятся в&nbsp;браузере.
+        </p>
+        <p class="text">
+          Современные инструменты делают транспиляцию очень быстрой и&nbsp;прозрачной, фактически позволяя разработчикам писать код на&nbsp;другом языке, автоматически преобразуя его в&nbsp;JavaScript &laquo;под капотом&raquo;.
+        </p>
+        <p class="text">
+          Примеры таких языков:
+        </p>
+        <ul class="list">
+          <li class="list-item">
+            <a href="http://coffeescript.org/" class="reference">CoffeeScript</a> добавляет &laquo;синтаксический сахар&raquo; для JavaScript. Он&nbsp;вводит более короткий синтаксис, который позволяет писать чистый и&nbsp;лаконичный код. Обычно такое нравится Ruby-программистам.
+          </li>
+          <li class="list-item">
+            <a href="http://www.typescriptlang.org/" class="reference">TypeScript</a> концентрируется на&nbsp;добавлении &laquo;строгой типизации&raquo; для упрощения разработки и&nbsp;поддержки больших и&nbsp;сложных систем. Разработан Microsoft.
+          </li>
+          <li class="list-item">
+            <a href="http://flow.org/" class="reference">Flow</a> тоже добавляет типизацию, но&nbsp;иначе. Разработан Facebook.
+          </li>
+          <li class="list-item">
+            <a href="http://flow.org/" class="reference">Dart</a> стоит особняком, потому что имеет собственный движок, работающий вне браузера (например, в&nbsp;мобильных приложениях). Первоначально был предложен Google, как замена JavaScript, но&nbsp;на&nbsp;данный момент необходима его транспиляция для запуска так&nbsp;же, как для вышеперечисленных языков.
+          </li>
+          <li class="list-item">
+            <a href="https://brython.info/" class="reference">Brython</a> транспилирует Python в&nbsp;JavaScript, что позволяет писать приложения на&nbsp;чистом Python без JavaScript.
+          </li>
+        </ul>
+        <p class="text">
+          Есть и&nbsp;другие. Но&nbsp;даже если мы&nbsp;используем один из&nbsp;этих языков, мы&nbsp;должны знать JavaScript, чтобы действительно понимать, что мы&nbsp;делаем.
+        </p>
+      </section>
+      <section id="in-total" class="section">
+        <h2 class="second-level-title">
+          Итого
+        </h2>
+        <ul class="list">
+          <li class="list-item">
+            JavaScript изначально создавался только для браузера, но&nbsp;сейчас используется на&nbsp;многих других платформах.
+          </li>
+          <li class="list-item">
+            Сегодня JavaScript занимает уникальную позицию в&nbsp;качестве самого распространённого языка для браузера, обладающего полной интеграцией с&nbsp;HTML/CSS.
+          </li>
+          <li class="list-item">
+            Многие языки могут быть &laquo;транспилированы&raquo; в&nbsp;JavaScript для предоставления дополнительных функций. Рекомендуется хотя&nbsp;бы кратко рассмотреть их&nbsp;после освоения JavaScript.
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <section class="buttons">
+        <button class="btn"><a href="#" class="reference-footer">Подписаться</a></button>
+        <button class="btn"><a href="#" class="reference-footer">На главную</a></button>
+      </section>
+    </div>
+  </footer>
+</body>
+</html>
